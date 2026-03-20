@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { Sun, Moon } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Sun, Moon, Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Magnetic from '../ui/Magnetic';
 
 const navLinks = [
@@ -41,6 +41,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -62,6 +63,18 @@ export default function Navbar() {
             setIsPlaying(true);
         }
     }
+
+    const handleFirstInteraction = () => {
+      if (document.getElementById('bgm-player') && document.getElementById('bgm-player').paused) {
+          document.getElementById('bgm-player').play()
+            .then(() => setIsPlaying(true))
+            .catch(err => console.log('Autoplay deferred:', err));
+      }
+    };
+
+    document.addEventListener('click', handleFirstInteraction, { once: true });
+    document.addEventListener('touchstart', handleFirstInteraction, { once: true });
+    document.addEventListener('scroll', handleFirstInteraction, { once: true });
   }, []);
 
   const toggleSound = () => {
@@ -117,10 +130,13 @@ export default function Navbar() {
               </a>
             </Magnetic>
           ))}
+        </nav>
+        
+        <div className="flex items-center gap-2 ml-auto lg:ml-0">
           <Magnetic damping={0.2} stiffness={200}>
             <button
                 onClick={toggleTheme}
-                className="ml-4 p-2 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-all focus:outline-none flex items-center justify-center"
+                className="p-2 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-all focus:outline-none flex items-center justify-center"
                 aria-label="Toggle Dark/Light Mode"
             >
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -129,14 +145,47 @@ export default function Navbar() {
           <Magnetic damping={0.2} stiffness={200}>
             <button
                 onClick={toggleSound}
-                className="ml-2 p-2 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-all focus:outline-none flex items-center justify-center"
+                className="p-2 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-all focus:outline-none flex items-center justify-center"
                 aria-label="Toggle Sound"
             >
                 <SoundIcon isPlaying={isPlaying} />
             </button>
           </Magnetic>
-        </nav>
+          
+          <button
+            className="lg:hidden p-2 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-all ml-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle Mobile Menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden w-full bg-[#050505]/95 backdrop-blur-xl border-b border-white/10 overflow-hidden"
+          >
+            <div className="px-6 py-4 flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-lg font-medium text-slate-300 hover:text-white transition-colors border-b border-white/5 pb-2"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
