@@ -1,9 +1,71 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-background: #050505;
+  --color-surface: #0a0a0a;
+  --color-primary: #f8fafc;
+  --color-secondary: #94a3b8;
+  --color-accent-1: #6366f1;
+  /* Indigo */
+  --color-accent-2: #a855f7;
+  /* Purple */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a1a1aa;
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-mono: "Fira Code", monospace;
+}
+
+:root {
+  --bg-color: #000000;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
 
 body {
-  background: #0f172a;
-  color: white;
-  font-family: system-ui, sans-serif;
+  background-color: var(--bg-color);
+  color: #f3f4f6;
+  font-family: 'Inter', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Hide cursor for custom cursor implementation */
+@media (pointer: fine) {
+
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    cursor: none !important;
+  }
+}
+
+/* Base structural additions for the new sober theme */
+.glass {
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+  background: rgba(15, 15, 15, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 10px 40px rgba(99, 102, 241, 0.1);
 }
