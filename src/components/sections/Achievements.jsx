@@ -5,22 +5,10 @@ import { textReveal } from '../../utils/motion';
 
 const achievements = [
     {
-        year: "2025",
-        title: "1st Place - Global Hackathon",
-        desc: "Built an AI-driven accessibility tool that won first place out of 500+ teams.",
+        year: "Nov' 2025",
+        title: "Solved 200+ coding problems",
+        desc: "Across platforms including LeetCode, NeoColab, and CodeTantra.",
         icon: <Trophy size={20} />
-    },
-    {
-        year: "2024",
-        title: "Open Source Contributor",
-        desc: "Core contributions merged into large repositories.",
-        icon: <Star size={20} />
-    },
-    {
-        year: "2023",
-        title: "Top Performer Award",
-        desc: "Recognized for architecting reliable infrastructural components.",
-        icon: <Zap size={20} />
     }
 ];
 
@@ -54,16 +42,16 @@ export default function Achievements() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: idx * 0.1, duration: 0.5 }}
-                        className=" rounded-xl p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start md:items-center border border-white/5 hover:border-white/30 transition-colors group"
+                        className="bg-white/5 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start md:items-center border border-white/5 hover:border-white/30 transition-colors group"
                     >
-                        <div className="w-14 h-14 shrink-0 rounded-full  flex items-center justify-center border border-white/10 group-hover:border-white/50 group-hover:bg-emerald-900/20 text-zinc-300 transition-colors">
+                        <div className="w-14 h-14 shrink-0 rounded-full  flex items-center justify-center border border-white/10 group-hover:border-white/50 group-hover:bg-zinc-200/20 text-zinc-300 transition-colors">
                             {item.icon}
                         </div>
 
                         <div className="flex-1">
                             <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-2">
                                 <h3 className="text-xl font-bold text-white">{item.title}</h3>
-                                <span className="text-sm font-mono text-zinc-300 bg-emerald-900/30 px-3 py-1 rounded-full border border-emerald-500/20">
+                                <span className="text-sm font-mono text-zinc-300 bg-zinc-200/30 px-3 py-1 rounded-full border border-zinc-500/20">
                                     {item.year}
                                 </span>
                             </div>

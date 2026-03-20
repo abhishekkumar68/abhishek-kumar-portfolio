@@ -6,19 +6,19 @@ import { imageParallax, textReveal } from '../../utils/motion';
 
 const projectsData = [
     {
-        title: "Expenz",
-        description: "A full-stack finance management app that empowers users to monitor and analyze their spending. With user authentication, categorized transactions, and an interactive dashboard, it offers a complete overview of income versus expenses.",
-        categories: ["Full Stack", "Data Visualization"],
-        tech: ["React", "Express", "MongoDB", "Chart.js"],
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+        title: "Quiz App Platform",
+        description: "Built a full-stack quiz application enabling user registration, quiz participation, and a dynamic scoreboard. Designed and implemented secure authentication using JWT and encrypted passwords. Engineered a system capable of handling up to 50 simultaneous quiz takers and 100+ questions, with sub-second score evaluation.",
+        categories: ["Full Stack", "Web App"],
+        tech: ["MongoDB", "Express.js", "React.js", "Node.js"],
+        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
         featured: true
     },
     {
-        title: "YouTub",
-        description: "A full-featured video browsing web app that replicates core functionalities of YouTube. This project leverages the YouTube Data API to fetch real-time video results based on user queries, present detailed video views with suggestions, and display channel info.",
-        categories: ["Frontend", "API Integration"],
-        tech: ["React", "YouTube API", "Tailwind CSS"],
-        image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
+        title: "StoryLand - Story Sharing",
+        description: "Designed and developed a platform enabling users to write, share, like, and bookmark stories. Built RESTful APIs and React-based user interfaces along with a reading progress tracker and content moderation workflows. Optimized the backend to support 50+ daily story transactions with fast read/write operations.",
+        categories: ["Full Stack", "Frontend"],
+        tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+        image: "https://images.unsplash.com/photo-1455390582262-044cdead2708?auto=format&fit=crop&w=800&q=80",
         featured: false
     }
 ];
@@ -79,7 +79,7 @@ export default function Projects() {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.95 }}
                             transition={{ duration: 0.4 }}
-                            className=" rounded-xl overflow-hidden border border-white/5 group hover:border-white/30 transition-colors flex flex-col"
+                            className="bg-white/5 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl overflow-hidden border border-white/5 group hover:border-white/30 transition-colors flex flex-col"
                         >
                             <div className="relative h-64 overflow-hidden bg-transparent">
                                 <motion.img

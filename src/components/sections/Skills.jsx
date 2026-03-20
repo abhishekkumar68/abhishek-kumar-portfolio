@@ -6,21 +6,30 @@ import Magnetic from '../ui/Magnetic';
 import { textReveal } from '../../utils/motion';
 
 const skillsData = [
-    { name: 'C', percentage: 70, category: 'Programming Languages', icon: <Cpu className="text-zinc-300" size={24} /> },
-    { name: 'C++', percentage: 75, category: 'Programming Languages', icon: <Cpu className="text-white" size={24} /> },
-    { name: 'Java', percentage: 85, category: 'Programming Languages', icon: <Code2 className="text-red-400" size={24} /> },
-    { name: 'Python', percentage: 75, category: 'Programming Languages', icon: <Code2 className="text-yellow-400" size={24} /> },
-    { name: 'React', percentage: 90, category: 'Frontend', icon: <Layout className="text-cyan-400" size={24} /> },
-    { name: 'HTML', percentage: 95, category: 'Frontend', icon: <Layout className="text-orange-500" size={24} /> },
-    { name: 'CSS', percentage: 85, category: 'Frontend', icon: <Layout className="text-white" size={24} /> },
-    { name: 'JavaScript', percentage: 90, category: 'Frontend', icon: <Layout className="text-yellow-300" size={24} /> },
-    { name: 'Tailwind CSS', percentage: 80, category: 'Frontend', icon: <Layout className="text-cyan-300" size={24} /> },
-    { name: 'Node.js', percentage: 85, category: 'Backend', icon: <Server className="text-green-500" size={24} /> },
-    { name: 'Express', percentage: 80, category: 'Backend', icon: <Server className="text-gray-400" size={24} /> },
-    { name: 'MongoDB', percentage: 85, category: 'Databases', icon: <Database className="text-green-600" size={24} /> },
+    // Languages
+    { name: 'C++', percentage: 85, category: 'Languages', icon: <Cpu className="text-zinc-300" size={24} /> },
+    { name: 'Java', percentage: 80, category: 'Languages', icon: <Code2 className="text-zinc-300" size={24} /> },
+    { name: 'JavaScript', percentage: 90, category: 'Languages', icon: <Code2 className="text-zinc-300" size={24} /> },
+    { name: 'PHP', percentage: 65, category: 'Languages', icon: <Code2 className="text-zinc-300" size={24} /> },
+    
+    // Frameworks
+    { name: 'HTML', percentage: 95, category: 'Frameworks', icon: <Layout className="text-zinc-300" size={24} /> },
+    { name: 'CSS', percentage: 85, category: 'Frameworks', icon: <Layout className="text-zinc-300" size={24} /> },
+    { name: 'Node.js', percentage: 80, category: 'Frameworks', icon: <Server className="text-zinc-300" size={24} /> },
+    { name: 'React', percentage: 85, category: 'Frameworks', icon: <Layout className="text-zinc-300" size={24} /> },
+
+    // Tools/Platforms
+    { name: 'MySQL', percentage: 75, category: 'Tools / Platforms', icon: <Database className="text-zinc-300" size={24} /> },
+    { name: 'MongoDB', percentage: 80, category: 'Tools / Platforms', icon: <Database className="text-zinc-300" size={24} /> },
+    { name: 'Git & GitHub', percentage: 85, category: 'Tools / Platforms', icon: <Code2 className="text-zinc-300" size={24} /> },
+    { name: 'Postman', percentage: 80, category: 'Tools / Platforms', icon: <Server className="text-zinc-300" size={24} /> },
+
+    // Soft Skills
+    { name: 'Problem-Solving', percentage: 90, category: 'Soft Skills', icon: <Cpu className="text-zinc-300" size={24} /> },
+    { name: 'Adaptability', percentage: 95, category: 'Soft Skills', icon: <Cpu className="text-zinc-300" size={24} /> },
 ];
 
-const categories = ['All Skills', 'Programming Languages', 'Frontend', 'Backend', 'Databases'];
+const categories = ['All Skills', 'Languages', 'Frameworks', 'Tools / Platforms', 'Soft Skills'];
 
 export default function Skills() {
     const [activeCategory, setActiveCategory] = useState('All Skills');
@@ -76,7 +85,7 @@ export default function Skills() {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.3 }}
-                            className=" rounded-xl p-6 border border-white/5 hover:border-white/30 transition-colors flex flex-col justify-between h-40 group shadow-lg"
+                            className="bg-white/5 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl p-6 border border-white/5 hover:border-white/30 transition-colors flex flex-col justify-between h-40 group shadow-lg"
                         >
                             <div className="flex justify-between items-center mb-4">
                                 <div className="flex items-center gap-4">
@@ -95,7 +104,7 @@ export default function Skills() {
                                         whileInView={{ width: `${skill.percentage}%` }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 1, delay: 0.2 }}
-                                        className="h-full bg-gradient-to-r from-emerald-500 to-indigo-500 rounded-full"
+                                        className="h-full bg-gradient-to-r from-zinc-500 to-zinc-300 rounded-full"
                                     />
                                 </div>
                             </div>

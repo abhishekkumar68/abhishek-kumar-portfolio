@@ -3,7 +3,7 @@ import { fadeIn, staggerContainer, textReveal } from '../../utils/motion';
 import Magnetic from '../ui/Magnetic';
 
 export default function Hero() {
-    const techStack = ["Java", "Python", "React", "JavaScript", "Node.js", "MongoDB", "CSS"];
+    const techStack = ["C++", "Java", "JavaScript", "React", "Node.js", "MongoDB", "MySQL"];
 
     return (
         <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16" id="home">
@@ -60,7 +60,7 @@ export default function Hero() {
                         <Magnetic>
                             <a
                                 href="#projects"
-                                className="inline-block px-8 py-3 rounded-lg font-bold text-white bg-white/10 border border-white/10 backdrop-blur-md hover:bg-white transition-colors shadow-[0_4px_14px_0_rgba(37,99,235,0.39)]"
+                                className="inline-block px-8 py-3 rounded-lg font-bold text-white bg-white/10 border border-white/10 backdrop-blur-md hover:bg-white hover:!text-slate-900 transition-colors shadow-[0_4px_14px_0_rgba(37,99,235,0.39)]"
                             >
                                 View My Work
                             </a>
@@ -99,7 +99,7 @@ export default function Hero() {
                             className="relative w-full h-full rounded-full border-4 border-white/10 overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.1)]  flex items-center justify-center"
                         >
                             <img
-                                src="https://ui-avatars.com/api/?name=Abhishek+Kumar&size=512&background=10b981&color=fff"
+                                src="/profile.png"
                                 alt="Abhishek Kumar"
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />

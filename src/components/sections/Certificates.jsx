@@ -5,24 +5,24 @@ import { textReveal } from '../../utils/motion';
 
 const certificates = [
     {
-        title: "AWS Certified Solutions Architect",
-        issuer: "Amazon Web Services",
-        date: "Aug 2025",
-        id: "AWS-CSA-8921",
+        title: "MERN Full Stack Development",
+        issuer: "Gokboru Tech Pvt. Ltd.",
+        date: "Jun' 25 - Jul' 25",
+        link: "#",
         icon: <ShieldCheck size={32} />
     },
     {
-        title: "Advanced React Patterns",
-        issuer: "Frontend Masters",
-        date: "Feb 2025",
-        id: "FM-REACT-442",
+        title: "Cloud Computing",
+        issuer: "NPTEL",
+        date: "Jan' 25 - Apr' 25",
+        link: "#",
         icon: <Award size={32} />
     },
     {
-        title: "System Design Certificate",
-        issuer: "ByteByteGo",
-        date: "Nov 2024",
-        id: "BBG-SYS-991",
+        title: "Responsive Web Design",
+        issuer: "Free Code Camp",
+        date: "Aug' 23 - Dec' 23",
+        link: "#",
         icon: <Award size={32} />
     }
 ];
@@ -77,7 +77,9 @@ export default function Certificates() {
                                 </div>
 
                                 <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-2 text-xs font-mono text-slate-500">
-                                    <span>ID: {cert.id}</span>
+                                    <a href={cert.link} target="_blank" rel="noreferrer" className="hover:text-zinc-200 transition-colors uppercase font-bold tracking-widest">
+                                        View Credential →
+                                    </a>
                                 </div>
                             </div>
                         </div>
