@@ -11,6 +11,7 @@ const projectsData = [
         categories: ["Full Stack", "Web App"],
         tech: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT"],
         image: "/smartnote.png",
+        link: "https://smartnote-nine.vercel.app",
         featured: true
     },
     {
@@ -19,6 +20,7 @@ const projectsData = [
         categories: ["Full Stack", "Real-Time"],
         tech: ["Node.js", "React.js", "Tailwind CSS", "Socket.IO", "Express.js"],
         image: "/clipsync.png",
+        link: "https://clipboard-five-gules.vercel.app",
         featured: true
     }
 ];
@@ -116,12 +118,27 @@ export default function Projects() {
                                 <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-6 flex-grow">
                                     {project.description}
                                 </p>
-                                <div className="flex flex-wrap gap-2 pt-6 border-t border-slate-700/50">
-                                    {project.tech.map((tech, tIdx) => (
-                                        <span key={tIdx} className="px-3 py-1  rounded-full text-xs font-medium text-slate-300 border border-slate-700/50">
-                                            {tech}
-                                        </span>
-                                    ))}
+                                <div className="flex flex-wrap items-center justify-between gap-3 pt-6 border-t border-slate-700/50">
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.tech.map((tech, tIdx) => (
+                                            <span key={tIdx} className="px-3 py-1 rounded-full text-xs font-medium text-slate-300 border border-slate-700/50">
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
+                                    {project.link && (
+                                        <a
+                                            href={project.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-white bg-white/10 border border-white/10 backdrop-blur-md hover:bg-white hover:text-slate-900 transition-all duration-200 shrink-0"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                            Live Demo
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                         </motion.div>
