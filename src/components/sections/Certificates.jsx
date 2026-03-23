@@ -7,22 +7,15 @@ const certificates = [
     {
         title: "MERN Full Stack Development",
         issuer: "Gokboru Tech Pvt. Ltd.",
-        date: "Jun' 25 - Jul' 25",
-        link: "#",
+        date: "Jul 2025",
+        link: "https://drive.google.com/file/d/1ndRedVxPNs7GyckWwn3BRTr0LIHf6TA1/view",
         icon: <ShieldCheck size={32} />
     },
     {
         title: "Cloud Computing",
         issuer: "NPTEL",
-        date: "Jan' 25 - Apr' 25",
-        link: "#",
-        icon: <Award size={32} />
-    },
-    {
-        title: "Responsive Web Design",
-        issuer: "Free Code Camp",
-        date: "Aug' 23 - Dec' 23",
-        link: "#",
+        date: "Apr 2025",
+        link: "https://drive.google.com/file/d/1ewnh9v2tLHO_1wsSfn0pSuOQK0glhqg1/view",
         icon: <Award size={32} />
     }
 ];
@@ -49,7 +42,7 @@ export default function Certificates() {
                 </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 relative z-10 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 relative z-10 max-w-4xl mx-auto">
                 {certificates.map((cert, idx) => (
                     <motion.div
                         key={idx}
@@ -60,19 +53,19 @@ export default function Certificates() {
                         className="group relative h-64"
                     >
                         <div className="w-full h-full relative transition-transform duration-500 group-hover:-translate-y-2">
-                            <div className="absolute inset-0  rounded-xl p-6 flex flex-col overflow-hidden border border-white/5 hover:border-white/30">
+                            <div className="absolute inset-0 bg-white/5 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl p-6 flex flex-col overflow-hidden border border-white/5 hover:border-white/30 transition-colors group">
 
                                 <div className="flex justify-between items-start mb-auto relative z-10">
-                                    <div className="p-3  rounded-lg text-zinc-300 border border-white/10 group-hover:border-white/30 transition-colors">
+                                    <div className="p-3 rounded-lg text-zinc-300 border border-white/10 group-hover:border-white/50 group-hover:bg-zinc-200/20 transition-colors">
                                         {cert.icon}
                                     </div>
-                                    <div className="text-xs font-mono text-slate-500  px-2 py-1 rounded border border-white/5">
+                                    <div className="text-xs font-mono text-zinc-300 bg-zinc-200/30 px-3 py-1 rounded-full border border-zinc-500/20">
                                         {cert.date}
                                     </div>
                                 </div>
 
                                 <div className="relative z-10">
-                                    <h3 className="text-xl font-bold text-white mb-1 group-hover:text-zinc-300 transition-colors">{cert.title}</h3>
+                                    <h3 className="text-xl font-bold text-white mb-1 group-hover:text-zinc-300 transition-colors uppercase tracking-tight">{cert.title}</h3>
                                     <p className="text-sm text-slate-400 font-medium">{cert.issuer}</p>
                                 </div>
 

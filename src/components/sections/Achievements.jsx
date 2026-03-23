@@ -5,7 +5,7 @@ import { textReveal } from '../../utils/motion';
 
 const achievements = [
     {
-        year: "Nov' 2025",
+        year: "2025",
         title: "Solved 200+ coding problems",
         desc: "Across platforms including LeetCode, NeoColab, and CodeTantra.",
         icon: <Trophy size={20} />

@@ -6,20 +6,20 @@ import { imageParallax, textReveal } from '../../utils/motion';
 
 const projectsData = [
     {
-        title: "Quiz App Platform",
-        description: "Built a full-stack quiz application enabling user registration, quiz participation, and a dynamic scoreboard. Designed and implemented secure authentication using JWT and encrypted passwords. Engineered a system capable of handling up to 50 simultaneous quiz takers and 100+ questions, with sub-second score evaluation.",
+        title: "SmartNote",
+        description: "Built a scalable full-stack personal knowledge management platform designed to support the organization of 1000+ learning resources using hierarchical collections and modular learning entities. Designed secure JWT-based authentication and implemented 15+ RESTful APIs for efficient CRUD operations.",
         categories: ["Full Stack", "Web App"],
-        tech: ["MongoDB", "Express.js", "React.js", "Node.js"],
-        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+        tech: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT"],
+        image: "/smartnote.png",
         featured: true
     },
     {
-        title: "StoryLand - Story Sharing",
-        description: "Designed and developed a platform enabling users to write, share, like, and bookmark stories. Built RESTful APIs and React-based user interfaces along with a reading progress tracker and content moderation workflows. Optimized the backend to support 50+ daily story transactions with fast read/write operations.",
-        categories: ["Full Stack", "Frontend"],
-        tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-        image: "https://images.unsplash.com/photo-1455390582262-044cdead2708?auto=format&fit=crop&w=800&q=80",
-        featured: false
+        title: "ClipSync",
+        description: "Engineered a real-time clipboard synchronization platform enabling secure text sharing across multiple devices through unique session tokens. Integrated WebSocket communication with Socket.IO to achieve sub-100 ms latency for instant updates between connected clients.",
+        categories: ["Full Stack", "Real-Time"],
+        tech: ["Node.js", "React.js", "Tailwind CSS", "Socket.IO", "Express.js"],
+        image: "/clipsync.png",
+        featured: true
     }
 ];
 

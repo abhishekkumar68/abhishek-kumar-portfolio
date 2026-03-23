@@ -10,37 +10,70 @@ const resumeData = {
         {
             institution: "Lovely Professional University",
             location: "Phagwara, Punjab",
-            duration: "Aug' 23 - Present",
-            degree: "B.Tech - Computer Science and Engineering",
-            score: "CGPA: 7.36"
+            duration: "Aug 2023 - Present",
+            degree: "Bachelor of Technology",
+            score: "Computer Science and Engineering; CGPA: 7.36"
         },
         {
             institution: "RDS College",
             location: "Muzaffarpur, Bihar",
-            duration: "Apr' 20 - Mar' 22",
+            duration: "2020 - 2022",
             degree: "Intermediate",
             score: "Percentage: 75.4%"
         },
         {
             institution: "Paramount Academy",
             location: "Muzaffarpur, Bihar",
-            duration: "Apr' 19 - Mar' 20",
+            duration: "2020",
             degree: "Matriculation",
             score: "Percentage: 81.6%"
         }
     ],
-    Skills: [],
-    Projects: [],
     Training: [
         {
             institution: "Gokboru Tech Pvt. Ltd.",
             location: "Remote",
-            duration: "Jun' 25 - Jul' 25",
+            duration: "Jun 2025 - Jul 2025",
             degree: "Full-Stack Development Using MERN",
-            score: "Trained in full-stack web development using the MERN stack with JWT authentication."
+            score: "Developed a full-stack quiz application using MERN with core features for participation and leaderboard tracking. Implemented JWT authentication and role-based access control."
         }
     ],
-    Certificates: []
+    Skills: {
+        "Languages": ["C++", "Java"],
+        "Web Technologies": ["HTML", "Tailwind CSS", "JavaScript", "React", "Node.js", "Express.js", "Socket.IO"],
+        "Database Management": ["MySQL", "MongoDB"],
+        "CS Fundamentals": ["OOP", "DBMS", "Data Structures", "Algorithms"],
+        "Tools": ["VS Code", "Git", "GitHub"]
+    },
+    Projects: [
+        {
+            title: "SmartNote",
+            tech: "MERN Stack",
+            duration: "Mar 2026",
+            description: "Built a scalable full-stack personal knowledge management platform designed to support the organization of 1000+ learning resources using hierarchical collections and modular learning entities."
+        },
+        {
+            title: "ClipSync",
+            tech: "MERN Stack",
+            duration: "Sep 2025",
+            description: "Engineered a real-time clipboard synchronization platform enabling secure text sharing across multiple devices through unique session tokens with sub-100 ms latency."
+        }
+    ],
+    Certificates: [
+        {
+            title: "Cloud Computing",
+            issuing_org: "NPTEL",
+            date: "Apr 2025"
+        },
+        {
+            title: "MERN Full Stack Development",
+            issuing_org: "Gokboru Tech Pvt. Ltd.",
+            date: "Jul 2025"
+        }
+    ],
+    Achievements: [
+        "Solved 200+ coding problems across platforms including LeetCode, NeoColab, and CodeTantra."
+    ]
 };
 
 const tabs = ['Education', 'Training', 'Skills', 'Projects', 'Certificates'];
@@ -67,7 +100,7 @@ export default function Resume() {
                 </div>
 
                 {/* Contact Pills */}
-                <div className="flex flex-wrap justify-center gap-4 mb-12">
+                <div className="flex flex-wrap justify-center gap-4 mb-4">
                     <Magnetic damping={0.15} stiffness={180}>
                         <a href="mailto:abhishek1709kumar@gmail.com" className="flex items-center gap-2 px-4 py-2 rounded-full  border border-white/5 hover:border-white/50 text-slate-300 hover:text-white transition-colors text-sm">
                             <Mail size={16} className="text-white" />
@@ -81,30 +114,42 @@ export default function Resume() {
                         </a>
                     </Magnetic>
                     <Magnetic damping={0.15} stiffness={180}>
-                        <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full  border border-white/5 hover:border-white/50 text-slate-300 hover:text-white transition-colors text-sm">
+                        <a href="https://linkedin.com/in/abhishekkumar75" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full  border border-white/5 hover:border-white/50 text-slate-300 hover:text-white transition-colors text-sm">
                             <Linkedin size={16} className="text-white" />
                             <span>LinkedIn</span>
                         </a>
                     </Magnetic>
                     <Magnetic damping={0.15} stiffness={180}>
-                        <a href="https://github.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full  border border-white/5 hover:border-white/50 text-slate-300 hover:text-white transition-colors text-sm">
+                        <a href="https://github.com/abhishekkumar68" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full  border border-white/5 hover:border-white/50 text-slate-300 hover:text-white transition-colors text-sm">
                             <Github size={16} className="text-zinc-400" />
                             <span>GitHub</span>
                         </a>
                     </Magnetic>
                 </div>
+                
+                {/* Achievement Highlight */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="mb-12"
+                >
+                    <p className="text-zinc-400 text-sm italic font-medium">
+                        🏆 {resumeData.Achievements[0]}
+                    </p>
+                </motion.div>
             </div>
 
             <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
                 {/* Navigation Tabs */}
-                <div className="flex flex-wrap justify-center gap-2 md:gap-6 mb-10">
+                <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-10">
                     {tabs.map((tab) => (
                         <Magnetic key={tab} damping={0.2} stiffness={200}>
                             <button
                                 onClick={() => setActiveTab(tab)}
-                                className={`px-4 md:px-6 py-2 rounded-lg text-sm md:text-base font-semibold transition-all duration-300 ${activeTab === tab
+                                className={`px-4 md:px-6 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${activeTab === tab
                                         ? 'bg-white/10 border border-white/10 backdrop-blur-md text-white shadow-[0_4px_14px_0_rgba(37,99,235,0.39)]'
-                                        : 'text-slate-400 hover:text-white hover:'
+                                        : 'text-slate-400 hover:text-white'
                                     }`}
                             >
                                 {tab}
@@ -124,28 +169,61 @@ export default function Resume() {
                             transition={{ duration: 0.3 }}
                             className="flex flex-col gap-4"
                         >
-                            {activeTab === 'Education' && resumeData.Education.map((item, idx) => (
+                            {(activeTab === 'Education' || activeTab === 'Training') && resumeData[activeTab].map((item, idx) => (
                                 <div key={idx} className="bg-white/5 backdrop-blur-md p-6 lg:p-8 rounded-xl border border-white/10 flex flex-col gap-4 hover:border-white/30 hover:bg-white/10 transition-all shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
                                     <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 border-b border-white/10 pb-4">
                                         <div>
-                                            <h3 className="text-xl md:text-2xl font-bold text-zinc-200">{item.institution}</h3>
-                                            <p className="text-sm text-slate-500 mt-1">{item.location}</p>
+                                            <h3 className="text-xl font-bold text-zinc-200">{item.institution}</h3>
+                                            <p className="text-xs text-slate-500 mt-1 uppercase tracking-wider">{item.location}</p>
                                         </div>
                                         <span className="text-sm font-medium text-zinc-400 md:text-right shrink-0">{item.duration}</span>
                                     </div>
                                     <div>
-                                        <h4 className="text-base text-slate-200 font-semibold mb-1">{item.degree}</h4>
-                                        <p className="text-slate-400 text-sm">{item.score}</p>
+                                        <h4 className="text-base text-slate-200 font-semibold mb-2">{item.degree}</h4>
+                                        <p className="text-slate-400 text-sm leading-relaxed">{item.score}</p>
                                     </div>
                                 </div>
                             ))}
 
-                            {activeTab !== 'Education' && (
-                                <div className="flex flex-col items-center justify-center p-12 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 text-slate-400 text-center shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-                                    <FileText size={48} className="mb-4 text-slate-600" />
-                                    <p>Detailed logs for {activeTab} are available in the full document.</p>
+                            {activeTab === 'Skills' && (
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                                    {Object.entries(resumeData.Skills).map(([category, skills], idx) => (
+                                        <div key={idx} className="bg-white/5 backdrop-blur-md p-6 rounded-xl border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                                            <h3 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4 border-b border-white/5 pb-2">{category}</h3>
+                                            <div className="flex flex-wrap gap-2">
+                                                {skills.map((skill, sIdx) => (
+                                                    <span key={sIdx} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-zinc-300 font-medium">
+                                                        {skill}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
                             )}
+
+                            {activeTab === 'Projects' && resumeData.Projects.map((project, idx) => (
+                                <div key={idx} className="bg-white/5 backdrop-blur-md p-6 lg:p-8 rounded-xl border border-white/10 flex flex-col gap-4 hover:border-white/30 hover:bg-white/10 transition-all shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                                    <div className="flex justify-between items-start border-b border-white/10 pb-4">
+                                        <div>
+                                            <h3 className="text-xl font-bold text-zinc-200">{project.title}</h3>
+                                            <p className="text-xs text-slate-500 mt-1 uppercase tracking-wider">{project.tech}</p>
+                                        </div>
+                                        <span className="text-sm font-medium text-zinc-400">{project.duration}</span>
+                                    </div>
+                                    <p className="text-slate-400 text-sm leading-relaxed">{project.description}</p>
+                                </div>
+                            ))}
+
+                            {activeTab === 'Certificates' && resumeData.Certificates.map((cert, idx) => (
+                                <div key={idx} className="bg-white/5 backdrop-blur-md p-6 rounded-xl border border-white/10 flex justify-between items-center hover:border-white/30 transition-all shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-200">{cert.title}</h3>
+                                        <p className="text-sm text-slate-500">{cert.issuing_org}</p>
+                                    </div>
+                                    <span className="text-sm font-medium text-zinc-400">{cert.date}</span>
+                                </div>
+                            ))}
                         </motion.div>
                     </AnimatePresence>
                 </div>

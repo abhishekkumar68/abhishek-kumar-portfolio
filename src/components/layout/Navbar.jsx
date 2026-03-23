@@ -105,6 +105,26 @@ export default function Navbar() {
     setIsDarkMode(!isDarkMode);
   };
 
+  const handleMobileLinkClick = (e, href) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    
+    // Give the menu a moment to start closing animation
+    setTimeout(() => {
+      const targetElement = document.querySelector(href);
+      if (targetElement) {
+        const offset = 80; // Approximate header height
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 300);
+  };
+
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#050505]/80 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-6'
@@ -176,7 +196,7 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => handleMobileLinkClick(e, link.href)}
                   className="text-lg font-medium text-slate-300 hover:text-white transition-colors border-b border-white/5 pb-2"
                 >
                   {link.name}

@@ -1,9 +1,94 @@
 import { motion } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
 import { fadeIn, staggerContainer, textReveal } from '../../utils/motion';
 import Magnetic from '../ui/Magnetic';
 
 export default function Hero() {
     const techStack = ["C++", "Java", "JavaScript", "React", "Node.js", "MongoDB", "MySQL"];
+    const nameLine1 = "Abhishek";
+    const nameLine2 = "Kumar";
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+    const [display1, setDisplay1] = useState(nameLine1);
+    const [display2, setDisplay2] = useState(nameLine2);
+    const [isAnimating, setIsAnimating] = useState(false);
+    const iterationRef = useRef(0);
+    const intervalRef = useRef(null);
+
+    const scrambleAll = () => {
+        if (iterationRef.current > 0) return;
+        cancelAnimationFrame(intervalRef.current);
+        iterationRef.current = 0.1;
+        setIsAnimating(true);
+
+        const animate = () => {
+            // Update Line 1
+            setDisplay1(
+                nameLine1.split("")
+                    .map((char, index) => {
+                        if (index < Math.floor(iterationRef.current)) return nameLine1[index];
+                        return chars[Math.floor(Math.random() * chars.length)];
+                    })
+                    .join("")
+            );
+
+            // Update Line 2 ( Kumar is shorter, so it will settle faster naturally if we use the same iterationRef, 
+            // but we want them to feel synchronized. We'll use the max length for the loop condition. )
+            setDisplay2(
+                nameLine2.split("")
+                    .map((char, index) => {
+                        if (index < Math.floor(iterationRef.current)) return nameLine2[index];
+                        return chars[Math.floor(Math.random() * chars.length)];
+                    })
+                    .join("")
+            );
+
+            const maxLength = Math.max(nameLine1.length, nameLine2.length);
+            if (iterationRef.current < maxLength) {
+                iterationRef.current += 1 / 4;
+                intervalRef.current = requestAnimationFrame(animate);
+            } else {
+                setDisplay1(nameLine1);
+                setDisplay2(nameLine2);
+                iterationRef.current = maxLength;
+                setIsAnimating(false);
+            }
+        };
+        animate();
+    };
+
+    const resetAll = () => {
+        cancelAnimationFrame(intervalRef.current);
+        setDisplay1(nameLine1);
+        setDisplay2(nameLine2);
+        iterationRef.current = 0;
+        setIsAnimating(false);
+    };
+
+    useEffect(() => {
+        return () => cancelAnimationFrame(intervalRef.current);
+    }, []);
+
+    const NameLine = ({ display, original, glowing }) => {
+        return (
+            <div className="relative inline-block w-full">
+                {/* Hidden Ghost Text for stable layout */}
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight opacity-0 pointer-events-none select-none leading-tight">
+                    {original}
+                </h1>
+                
+                {/* Animated Scramble Text Overlay */}
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight cursor-default absolute inset-0 z-10 whitespace-nowrap leading-tight">
+                    <span 
+                        className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 transition-all duration-150"
+                        style={{ filter: glowing ? 'drop-shadow(0 0 1px rgba(255,255,255,0.95)) drop-shadow(0 0 8px rgba(200,220,255,0.5)) drop-shadow(0 0 18px rgba(160,190,255,0.25))' : 'none' }}
+                    >
+                        {display}
+                    </span>
+                </h1>
+            </div>
+        );
+    };
 
     return (
         <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16" id="home">
@@ -16,12 +101,25 @@ export default function Hero() {
                     animate="show"
                     className="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1"
                 >
-                    <div className="overflow-hidden mb-4">
-                        <motion.h1 variants={textReveal} className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white">
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">
-                                Abhishek Kumar
-                            </span>
-                        </motion.h1>
+                    <div 
+                        onMouseEnter={scrambleAll}
+                        onMouseLeave={resetAll}
+                        className="flex flex-col mb-4 space-y-2 cursor-default group"
+                    >
+                        <motion.div variants={textReveal}>
+                            <NameLine 
+                                display={display1} 
+                                original={nameLine1} 
+                                glowing={isAnimating}
+                            />
+                        </motion.div>
+                        <motion.div variants={textReveal}>
+                            <NameLine 
+                                display={display2} 
+                                original={nameLine2} 
+                                glowing={isAnimating}
+                            />
+                        </motion.div>
                     </div>
 
                     <div className="overflow-hidden mb-6">
