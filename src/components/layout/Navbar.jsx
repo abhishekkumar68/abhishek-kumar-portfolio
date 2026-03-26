@@ -63,18 +63,6 @@ export default function Navbar() {
             setIsPlaying(true);
         }
     }
-
-    const handleFirstInteraction = () => {
-      if (document.getElementById('bgm-player') && document.getElementById('bgm-player').paused) {
-          document.getElementById('bgm-player').play()
-            .then(() => setIsPlaying(true))
-            .catch(err => console.log('Autoplay deferred:', err));
-      }
-    };
-
-    document.addEventListener('click', handleFirstInteraction, { once: true });
-    document.addEventListener('touchstart', handleFirstInteraction, { once: true });
-    document.addEventListener('scroll', handleFirstInteraction, { once: true });
   }, []);
 
   const toggleSound = () => {

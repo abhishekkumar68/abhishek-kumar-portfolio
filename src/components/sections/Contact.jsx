@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionWrapper from '../layout/SectionWrapper';
-import { Send, Mail, Phone, CheckCircle2, AlertCircle, MessageSquare } from 'lucide-react';
+import { Send, Mail, CheckCircle2, AlertCircle, Linkedin, Github } from 'lucide-react';
 import { textReveal } from '../../utils/motion';
 import Magnetic from '../ui/Magnetic';
 import emailjs from '@emailjs/browser';
@@ -65,37 +65,61 @@ export default function Contact() {
                 {/* Contact Info */}
                 <div className="flex flex-col gap-6 order-2 lg:order-1">
                     {/* Email Card */}
-                    <div className="bg-white/5 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-8 rounded-xl border border-white/10 flex flex-col md:flex-row gap-6 items-start md:items-center group hover:border-white/30 transition-colors">
+                    <a 
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=abhishek1709kumar@gmail.com" 
+                        target="_blank" 
+                        rel="noreferrer"
+                        className="bg-white/5 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-8 rounded-xl border border-white/10 flex flex-col md:flex-row gap-6 items-start md:items-center group hover:border-white/30 transition-colors cursor-pointer"
+                    >
                         <div className="w-14 h-14 shrink-0 rounded-full border border-white/10 flex items-center justify-center text-zinc-300 group-hover:scale-110 group-hover:bg-zinc-200/20 transition-all">
                             <Mail size={24} />
                         </div>
                         <div className="flex-1">
                             <p className="text-sm font-medium text-slate-500 mb-1">Email</p>
-                            <p className="text-lg md:text-xl font-bold text-white mb-2">abhishek1709kumar@gmail.com</p>
-                            <a href="mailto:abhishek1709kumar@gmail.com" className="text-sm text-zinc-300 hover:text-white flex items-center gap-1 transition-colors">
+                            <p className="text-lg md:text-xl font-bold text-white mb-2 md:truncate" title="abhishek1709kumar@gmail.com">abhishek1709kumar@... </p>
+                            <div className="text-sm text-zinc-300 group-hover:text-white flex items-center gap-1 transition-colors">
                                 Write Me <Send size={14} />
-                            </a>
+                            </div>
                         </div>
-                    </div>
+                    </a>
 
-                    {/* WhatsApp Card */}
-                    <div className="bg-white/5 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-8 rounded-xl border border-white/10 flex flex-col md:flex-row gap-6 items-start md:items-center group hover:border-white/30 transition-colors">
+                    {/* LinkedIn Card */}
+                    <a 
+                        href="https://linkedin.com/in/abhishekkumar75" 
+                        target="_blank"
+                        rel="noreferrer"
+                        className="bg-white/5 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-8 rounded-xl border border-white/10 flex flex-col md:flex-row gap-6 items-start md:items-center group hover:border-white/30 transition-colors cursor-pointer"
+                    >
                         <div className="w-14 h-14 shrink-0 rounded-full border border-white/10 flex items-center justify-center text-zinc-300 group-hover:scale-110 group-hover:bg-zinc-200/20 transition-all">
-                            <MessageSquare size={24} />
+                            <Linkedin size={24} />
                         </div>
                         <div className="flex-1">
-                            <p className="text-sm font-medium text-slate-500 mb-1">WhatsApp</p>
-                            <p className="text-lg md:text-xl font-bold text-white mb-2">+91-8002176875</p>
-                            <a 
-                                href="https://api.whatsapp.com/send?phone=918002176875&text=Hi Abhishek, I saw your portfolio!" 
-                                target="_blank"
-                                rel="noreferrer"
-                                className="text-sm text-zinc-300 hover:text-white flex items-center gap-1 transition-colors"
-                            >
-                                Write Me <Send size={14} />
-                            </a>
+                            <p className="text-sm font-medium text-slate-500 mb-1">LinkedIn</p>
+                            <p className="text-lg md:text-xl font-bold text-white mb-2">Abhishek Kumar</p>
+                            <div className="text-sm text-zinc-300 group-hover:text-white flex items-center gap-1 transition-colors">
+                                Connect <Send size={14} />
+                            </div>
                         </div>
-                    </div>
+                    </a>
+
+                    {/* GitHub Card */}
+                    <a 
+                        href="https://github.com/abhishekkumar68" 
+                        target="_blank"
+                        rel="noreferrer"
+                        className="bg-white/5 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-8 rounded-xl border border-white/10 flex flex-col md:flex-row gap-6 items-start md:items-center group hover:border-white/30 transition-colors cursor-pointer"
+                    >
+                        <div className="w-14 h-14 shrink-0 rounded-full border border-white/10 flex items-center justify-center text-zinc-300 group-hover:scale-110 group-hover:bg-zinc-200/20 transition-all">
+                            <Github size={24} />
+                        </div>
+                        <div className="flex-1">
+                            <p className="text-sm font-medium text-slate-500 mb-1">GitHub</p>
+                            <p className="text-lg md:text-xl font-bold text-white mb-2">abhishekkumar68</p>
+                            <div className="text-sm text-zinc-300 group-hover:text-white flex items-center gap-1 transition-colors">
+                                Follow <Send size={14} />
+                            </div>
+                        </div>
+                    </a>
                 </div>
 
                 {/* Message Form */}

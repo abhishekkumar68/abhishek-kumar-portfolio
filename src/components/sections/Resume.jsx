@@ -102,7 +102,7 @@ export default function Resume() {
                 {/* Contact Pills */}
                 <div className="flex flex-wrap justify-center gap-4 mb-4">
                     <Magnetic damping={0.15} stiffness={180}>
-                        <a href="mailto:abhishek1709kumar@gmail.com" className="flex items-center gap-2 px-4 py-2 rounded-full  border border-white/5 hover:border-white/50 text-slate-300 hover:text-white transition-colors text-sm">
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=abhishek1709kumar@gmail.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full  border border-white/5 hover:border-white/50 text-slate-300 hover:text-white transition-colors text-sm">
                             <Mail size={16} className="text-white" />
                             <span>abhishek1709kumar@gmail.com</span>
                         </a>

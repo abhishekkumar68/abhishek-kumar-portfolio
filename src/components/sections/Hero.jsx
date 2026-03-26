@@ -123,8 +123,8 @@ export default function Hero() {
                     </div>
 
                     <div className="overflow-hidden mb-6">
-                        <motion.h2 variants={textReveal} className="text-2xl md:text-3xl text-slate-300 font-medium">
-                            Full Stack Developer
+                        <motion.h2 variants={textReveal} className="text-xl md:text-2xl text-slate-300 font-medium">
+                            Computer Science Student | Aspiring Software Engineer
                         </motion.h2>
                     </div>
 
@@ -132,7 +132,8 @@ export default function Hero() {
                         variants={fadeIn('up', 0.4)}
                         className="text-base md:text-lg text-slate-400 max-w-xl leading-relaxed mb-8"
                     >
-                        Welcome to my digital playground! I craft elegant solutions through code, turning ideas into immersive digital experiences that solve real-world problems.
+                        I am a 3rd year B.Tech student focused on Data Structures and Algorithms and building real-world projects. <br className="hidden md:block" />
+                        Currently learning web development and exploring backend technologies.
                     </motion.p>
 
                     {/* Tech Stack Pills */}

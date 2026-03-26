@@ -62,7 +62,7 @@ export default function CustomCursor() {
         }}
         transition={{ type: 'tween', duration: 0.1 }}
       />
-      
+
       {/* Outer Ring - Snappy spring follow */}
       <motion.div
         className="fixed top-0 left-0 w-10 h-10 rounded-full border border-white/50 pointer-events-none z-[99] mix-blend-screen"

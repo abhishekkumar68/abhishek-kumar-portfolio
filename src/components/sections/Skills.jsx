@@ -50,7 +50,7 @@ export default function Skills() {
                         className="text-4xl md:text-5xl font-bold"
                     >
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">
-                            Technical Arsenal
+                            Technical Skills
                         </span>
                     </motion.h2>
                 </div>
@@ -94,14 +94,13 @@ export default function Skills() {
                                     </div>
                                     <h3 className="text-lg font-bold text-white tracking-wide">{skill.name}</h3>
                                 </div>
-                                <span className="text-sm font-mono text-zinc-300">{skill.percentage}%</span>
                             </div>
 
                             <div className="w-full">
                                 <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
                                     <motion.div
                                         initial={{ width: 0 }}
-                                        whileInView={{ width: `${skill.percentage}%` }}
+                                        whileInView={{ width: "100%" }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 1, delay: 0.2 }}
                                         className="h-full bg-gradient-to-r from-zinc-500 to-zinc-300 rounded-full"

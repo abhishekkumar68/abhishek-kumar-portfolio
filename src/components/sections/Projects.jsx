@@ -6,8 +6,8 @@ import { imageParallax, textReveal } from '../../utils/motion';
 
 const projectsData = [
     {
-        title: "SmartNote",
-        description: "Built a scalable full-stack personal knowledge management platform designed to support the organization of 1000+ learning resources using hierarchical collections and modular learning entities. Designed secure JWT-based authentication and implemented 15+ RESTful APIs for efficient CRUD operations.",
+        title: "SmartNote – Personal Knowledge Base",
+        description: "• Built a full-stack application for managing personal knowledge, including notes, files, and resources\n• Implemented structured organization using collections and categorized data for better accessibility\n• Focused on backend integration, authentication, and creating a smooth user experience.",
         categories: ["Full Stack", "Web App"],
         tech: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT"],
         image: "/smartnote.png",
@@ -115,7 +115,7 @@ export default function Projects() {
 
                             <div className="p-6 md:p-8 flex flex-col flex-grow relative z-20">
                                 <h3 className="text-2xl font-bold text-zinc-300 mb-3">{project.title}</h3>
-                                <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-6 flex-grow">
+                                <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-6 flex-grow whitespace-pre-line">
                                     {project.description}
                                 </p>
                                 <div className="flex flex-wrap items-center justify-between gap-3 pt-6 border-t border-slate-700/50">
